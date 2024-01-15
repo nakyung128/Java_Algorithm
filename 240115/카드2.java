@@ -25,8 +25,7 @@ class Card2 {
 			}
 			
 			cards.poll(); // 제일 위 것을 버린다 
-			cards.offer(cards.peek()); // 다음 것을 제일 아래로 옮긴다
-			cards.poll();
+			cards.offer(cards.poll()); // 다음 것을 제일 아래로 옮긴다
 		}	
 		
 	}
