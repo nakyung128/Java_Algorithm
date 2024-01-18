@@ -29,9 +29,10 @@ public class NumberBaseball {
 			int s = 0;
 			int b = 0;
 			
+			// 숫자 내에 중복되는 수가 있는 경우 제외 
 			if (str_number.charAt(0) == str_number.charAt(1) || str_number.charAt(1) == str_number.charAt(2) || str_number.charAt(0) == str_number.charAt(2)) {
 				continue;
-			} else if (str_number.charAt(0) == '0' || str_number.charAt(1) == '0' || str_number.charAt(2) == '0') continue;
+			} else if (str_number.charAt(0) == '0' || str_number.charAt(1) == '0' || str_number.charAt(2) == '0') continue; // 숫자 내에 0이 있는 경우 제
 
 			
 			for (int j = 0; j < n; j++) {
@@ -52,6 +53,7 @@ public class NumberBaseball {
 					}
 				}
 				
+				// strike, ball의 개수가 같은 경우 right = true
 				if (strikes[j] == s && balls[j] == b) {
 					right = true;
 				} else {
@@ -61,6 +63,9 @@ public class NumberBaseball {
 				s = 0;
 				b = 0;
 			}
+			
+			// right == true이면 영수가 말한 모든 숫자와 strike, ball의 개수가 같은 것이므로
+			// answer += 1 해 준다
 			if (right) {
 				answer++;
 			}
