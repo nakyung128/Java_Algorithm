@@ -34,7 +34,6 @@ public class BOJ14502 {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < m; j++) {
 				virus[i][j] = Integer.parseInt(st.nextToken());
-				temp_virus[i][j] = virus[i][j]; // temp_virus 배열에서 돌릴 것임
 				if (virus[i][j] == 2) {
 					queue.offer(new int[] { i, j });
 					where_virus.add(new int[] {i, j});
@@ -42,10 +41,7 @@ public class BOJ14502 {
 			}
 		}
 		
-		answer = 0;
-
-		back(0);
-		
+		back(0);		
 		System.out.println(answer);
 	}
 
