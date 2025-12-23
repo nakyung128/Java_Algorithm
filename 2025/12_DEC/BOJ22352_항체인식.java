@@ -43,22 +43,27 @@ public class BOJ22352_항체인식 {
         int diffCnt = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (!visited[i][j]) {
-                    flag = true;
-                    visited[i][j] = true;
-                    dfs(i, j);
-                    if (!flag) {
-                        // 그룹이 동일하지 않다면 바로 "NO" 반환.
-                        System.out.println("NO");
-                        System.exit(0);
-                    } else {
-                        if (before[i][j] == after[i][j]) {
-                            sameCnt++; // 이전, 이후 데이터 같은 경우
-                        } else {
-                            diffCnt++; // 이전, 이후 데이터 달라진 경우
-                        }
-                    }
+                if (visited[i][j]) {
+                    continue;
                 }
+
+                flag = true; // 플래그 초기화
+                visited[i][j] = true; // 시작 지점 방문 처리
+
+                dfs(i, j);
+
+                if (!flag) {
+                    // 그룹이 동일하지 않다면 바로 "NO" 반환.
+                    System.out.println("NO");
+                    return;
+                }
+
+                if (before[i][j] == after[i][j]) {
+                    sameCnt++; // 이전, 이후 데이터 같은 경우
+                } else {
+                    diffCnt++; // 이전, 이후 데이터 달라진 경우
+                }
+
             }
         }
 
